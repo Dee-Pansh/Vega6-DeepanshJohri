@@ -3,15 +3,14 @@ const { addBlog, getAllBlogs, updateBlog, deleteBlog } = require("../Controllers
 
 const router = express.Router();
 const multer = require("multer");
-const { userAuth } = require("../Middlewares/Auth");
 const upload = multer();
 
-router.post("/addBlog",upload.single("image"),userAuth,addBlog);
+router.post("/addBlog",upload.single("image"),addBlog);
 
-router.get("/getAllBlogs",upload.single("image"),userAuth,getAllBlogs);
+router.get("/getAllBlogs",upload.single("image"),getAllBlogs);
 
-router.patch("/updateBlog",upload.single("image"),userAuth,updateBlog);
+router.patch("/updateBlog",upload.single("image"),updateBlog);
 
-router.delete("/deleteBlog/:blogId",userAuth,deleteBlog);
+router.delete("/deleteBlog/:blogId",deleteBlog);
 
 module.exports = router;

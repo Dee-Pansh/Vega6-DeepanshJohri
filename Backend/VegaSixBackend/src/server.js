@@ -3,7 +3,9 @@ const databaseConnection = require("./DB/dbConfig");
 require("dotenv").config();
 const userRouter = require("./Routes/userRoutes");
 const blogRouter = require("./Routes/blogRoutes");
+const commentRouter = require("./Routes/commentRouter");
 const cookieParser = require("cookie-parser");
+const { userAuth } = require("./Middlewares/Auth");
 const app = express();
 
 app.use(express.json());
@@ -18,7 +20,8 @@ app.use((req, res, next) => {
 
 //routes
 app.use(userRouter);
-app.use(blogRouter);
+app.use(userAuth,blogRouter);
+app.use(userAuth,commentRouter);
 
 
 

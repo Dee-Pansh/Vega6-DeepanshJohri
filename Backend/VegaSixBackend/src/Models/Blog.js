@@ -17,14 +17,6 @@ const blogSchema = new mongoose.Schema({
         ref:"User",
         required:true
     },
-    comments:{
-        type:[
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref:"Comment"
-            }
-        ]
-    }
 });
 
 blogSchema.index({title:"text"});
