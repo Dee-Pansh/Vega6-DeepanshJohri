@@ -2,6 +2,7 @@ const express = require("express");
 const databaseConnection = require("./DB/dbConfig");
 require("dotenv").config();
 const userRouter = require("./Routes/userRoutes");
+const blogRouter = require("./Routes/blogRoutes");
 const cookieParser = require("cookie-parser");
 const app = express();
 
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 
 //routes
 app.use(userRouter);
+app.use(blogRouter);
 
 
 
